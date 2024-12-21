@@ -1,0 +1,13 @@
+services:
+  app:
+    image: adventofcode
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    container_name: adventofcode
+    volumes:
+      - .:/app:cached
+      - bundle:/usr/local/bundle
+
+volumes:
+  bundle:
