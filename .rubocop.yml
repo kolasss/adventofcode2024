@@ -14,3 +14,9 @@ AllCops:
 
 Metrics/MethodLength:
   Enabled: false
+
+Naming/MethodParameterName:
+  MinNameLength: 1
+
+Style/Documentation:
+  Enabled: false
