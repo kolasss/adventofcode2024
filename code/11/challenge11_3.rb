@@ -1,6 +1,8 @@
+# часть 2 неудачная попыткая сделать через кэш №2
+
 # STONES = File.read('input11').split(' ').map(&:to_i)
 
-input1 = %{125 17}
+input1 = %(125 17)
 # 6 22
 # 25 55312
 
@@ -21,7 +23,7 @@ STONES = input1.split(' ').map(&:to_i)
 }
 
 def stone_in_blinks(stone, steps, previous_steps = [])
-# def stone_in_blinks(stone, steps)
+  # def stone_in_blinks(stone, steps)
   # p "stone: #{stone}, steps: #{steps}"
   cached = @cache.dig(stone, steps)
   return cached if cached
@@ -103,7 +105,6 @@ def stone_in_blinks(stone, steps, previous_steps = [])
     # update_cache(previous_steps, stones_new, steps_next)
   end
 
-
   # update_cache(previous_steps, stones_new, steps)
   @cache[stone][steps] = stones_new
   # p @cache
@@ -124,7 +125,7 @@ end
 def calculate_next_stones(stone)
   if stone == 0
     [1]
-  elsif stone.to_s.length % 2 == 0
+  elsif stone.to_s.length.even?
     string = stone.to_s
     length_half = string.length / 2
     [string[0, length_half].to_i, string[length_half, length_half].to_i]
